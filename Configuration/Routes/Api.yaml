@@ -1,0 +1,13 @@
+routes:
+  - route: '/api'
+    type: 'slim'
+    groups:
+      - route: '/v1'
+        routes:
+          - methods: [any]
+            route: '/schema.json'
+            file: 'EXT:code711_newsapi/Resources/Private/Api/schema.json'
+            contentType: 'application/json'
+          - methods: [get]
+            route: '/listnews'
+            callback: Code711\Code711Api\Controller\NewsController:getNewsListAction

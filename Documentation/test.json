@@ -1,0 +1,133 @@
+{
+	"info": {
+		"_postman_id": "e52cea47-9fe1-4473-9b57-98b23346f98a",
+		"name": "T3DD22 REST API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "285187"
+	},
+	"item": [
+		{
+			"name": "Schema",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://rest-t3dd22.ddev.site/api/v1/schema.json",
+					"protocol": "https",
+					"host": [
+						"rest-t3dd22",
+						"ddev",
+						"site"
+					],
+					"path": [
+						"api",
+						"v1",
+						"schema.json"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Site Info",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Page Info",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://rest-t3dd22.ddev.site/api/v1/page/1",
+					"protocol": "https",
+					"host": [
+						"rest-t3dd22",
+						"ddev",
+						"site"
+					],
+					"path": [
+						"api",
+						"v1",
+						"page",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Page Record",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"pid\": 1, \"title\": \"New page\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://rest-t3dd22.ddev.site/api/v1/page/new",
+					"protocol": "https",
+					"host": [
+						"rest-t3dd22",
+						"ddev",
+						"site"
+					],
+					"path": [
+						"api",
+						"v1",
+						"page",
+						"new"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

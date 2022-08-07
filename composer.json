@@ -1,0 +1,21 @@
+{
+	"name": "code711/code711-api",
+	"description": "An API for accessing TYPO3 data",
+	"type": "typo3-cms-extension",
+	"require": {
+		"typo3/cms-core": "^11.5",
+		"b13/slimphp-bridge": "^0.3",
+		"firebase/php-jwt": "^6.3"
+	},
+	"version": "1.0.0",
+	"autoload": {
+		"psr-4": {
+			"Code711\\Code711Api\\": "Classes/"
+		}
+	},
+	"extra": {
+		"typo3/cms": {
+			"extension-key": "code711_api"
+		}
+	}
+}
