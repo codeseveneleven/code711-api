@@ -1,5 +1,12 @@
 {
 	"name": "code711/code711-api",
+	"authors": [
+		{
+			"name": "Patricia Ottmar",
+			"role": "Developer",
+			"email": "p.ottmar@12bis3.de"
+		}
+	],
 	"description": "An API for accessing TYPO3 data",
 	"type": "typo3-cms-extension",
 	"require": {
