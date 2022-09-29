@@ -14,6 +14,7 @@ class BasicAuthentication implements MiddlewareInterface
     public function process(ServerRequestInterface $request, RequestHandlerInterface $handler): ResponseInterface
     {
         $authorization = $request->getHeader('authorization')[0];
+
         if (strpos($authorization, 'Basic ') !== 0) {
             return new JsonResponse(
                 [
