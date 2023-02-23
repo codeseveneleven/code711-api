@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Code711\Code711Api\Middleware;
 
 use Psr\Http\Message\ResponseInterface;
@@ -17,7 +19,7 @@ class BasicAuthentication implements MiddlewareInterface
         if (isset($header[0])) {
             $authorization = $request->getHeader('authorization')[0];
 
-            if (strpos($authorization, 'Basic ') !== 0) {
+            if (str_starts_with($authorization, 'Basic ')) {
                 return new JsonResponse(
                     [
                         'message' => 'Authorization header not found.',
