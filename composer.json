@@ -1,5 +1,6 @@
 {
 	"name": "code711/code711-api",
+	"description": "An API for accessing TYPO3 data",
 	"authors": [
 		{
 			"name": "Patricia Ottmar",
@@ -7,9 +8,9 @@
 			"email": "p.ottmar@12bis3.de"
 		}
 	],
-	"description": "An API for accessing TYPO3 data",
 	"type": "typo3-cms-extension",
 	"require": {
+		"php": ">=8.1",
 		"b13/slimphp-bridge": "^0.5",
 		"firebase/php-jwt": "^6.4",
 		"helhum/dotenv-connector": "^3.0"
