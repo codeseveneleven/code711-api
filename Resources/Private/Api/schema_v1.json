@@ -16,6 +16,9 @@
 				"responses": {
 					"200": {
 						"description": "Successful response"
+					},
+					"403": {
+						"description": "Forbidden"
 					}
 				}
 			}
@@ -25,7 +28,7 @@
 		"securitySchemes": {
 			"BasicAuth": {
 				"type": "http",
-				"scheme": "bearer"
+				"scheme": "basic"
 			}
 		}
 	}

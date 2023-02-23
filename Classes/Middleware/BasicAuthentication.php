@@ -9,29 +9,35 @@ use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\MiddlewareInterface;
 use Psr\Http\Server\RequestHandlerInterface;
 use TYPO3\CMS\Core\Http\JsonResponse;
+use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 
 class BasicAuthentication implements MiddlewareInterface
 {
 
     public function process(ServerRequestInterface $request, RequestHandlerInterface $handler): ResponseInterface
     {
-        $header = $request->getHeader('authorization');
-        if (isset($header[0])) {
-            $authorization = $request->getHeader('authorization')[0];
+        if ($request->getUri()->getPath() === '/api/v1/version') {
+            $header = $request->getHeader('authorization');
+            if (isset($header[0])) {
+                $authorization = $request->getHeader('authorization')[0];
 
-            if (str_starts_with($authorization, 'Basic ')) {
-                return new JsonResponse(
-                    [
-                        'message' => 'Authorization header not found.',
-                        'headers' => $request->getHeaders(),
-                    ],
-                    403
-                );
-            }
-            $authKey = trim(str_replace('Basic ', '', $authorization), '"\'');
-            $key = base64_encode(getenv('REST_API_USER') . ':' . getenv('REST_API_PW'));
-            if ($authKey !== $key) {
-                return new JsonResponse(['message' => 'Web Token is invalid'], 401);
+                if (!str_starts_with($authorization, 'Basic ')) {
+                    return new JsonResponse(
+                        [
+                            'message' => 'Authorization header not found.',
+                            'headers' => $request->getHeaders(),
+                        ],
+                        403
+                    );
+                }
+                $authKey = trim(str_replace('Basic ', '', $authorization), '"\'');
+                $key = base64_encode(getenv('REST_API_USER') . ':' . getenv('REST_API_PW'));
+
+                if ($authKey !== $key) {
+                    return new JsonResponse(['message' => 'Web Token is invalid'], 401);
+                }
+            } else {
+                return new JsonResponse(['message' => 'Forbidden'], 403);
             }
         }
         return $handler->handle($request);
