@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Code711\Code711Api\Controller;
 
 use Psr\Http\Message\ResponseInterface;

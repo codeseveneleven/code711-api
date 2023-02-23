@@ -10,8 +10,8 @@
 	"description": "An API for accessing TYPO3 data",
 	"type": "typo3-cms-extension",
 	"require": {
-		"b13/slimphp-bridge": "0.5.*",
-		"firebase/php-jwt": "^6.3",
+		"b13/slimphp-bridge": "^0.5",
+		"firebase/php-jwt": "^6.4",
 		"helhum/dotenv-connector": "^3.0"
 	},
 	"autoload": {

@@ -12,8 +12,8 @@
  */
 
 $EM_CONF[$_EXTKEY] = [
-    'title' => 'API Info',
-    'description' => '',
+    'title' => 'Code711 REST API',
+    'description' => 'An API for accessing TYPO3 data',
     'category' => 'plugin',
     'author' => 'Patricia Ottmar',
     'author_email' => 'p.ottmar@12bis3.de',
