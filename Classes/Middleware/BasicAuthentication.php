@@ -31,8 +31,10 @@ class BasicAuthentication implements MiddlewareInterface
                     );
                 }
                 $authKey = trim(str_replace('Basic ', '', $authorization), '"\'');
+                if (empty(getenv('REST_API_USER')) || empty(getenv('REST_API_PW'))) {
+                    return new JsonResponse(['message' => 'Missing credentials'], 401);
+                }
                 $key = base64_encode(getenv('REST_API_USER') . ':' . getenv('REST_API_PW'));
-
                 if ($authKey !== $key) {
                     return new JsonResponse(['message' => 'Web Token is invalid'], 401);
                 }
